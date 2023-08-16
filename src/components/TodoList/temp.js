@@ -2,7 +2,7 @@
 const initValue = { value: 0 };
 const rootReducer = (state = initValue, action) => {
   switch (action.type) {
-    case 'INCREMENT':
+    case 'INCREMENTtt':
       return {
         ...state,
         value: state.value + 1,
