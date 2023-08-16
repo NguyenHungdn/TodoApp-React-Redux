@@ -32,14 +32,19 @@ export default function TodoList() {
   };
   return (
     <Row style={{ height: 'calc(100% - 40px)' }}>
-      <Col
-        span={24}
-        style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}
-      ></Col>
+      <Col span={24} style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}>
+        {todoList.map((todo) => {
+          <Todo
+            value={todo.name}
+            onChange={handleInputChange}
+            priority={todo.priority}
+          />;
+        })}
+      </Col>
       <Col span={24}>
         <Input.Group style={{ display: 'flex' }} compact>
           <Input />
-          <Select defaultValue="Medium" onChange={handlePriorityChange}>
+          <Select defaultValue="Medium">
             <Select.Option value="High" label="High">
               <Tag color="red">High</Tag>
             </Select.Option>
@@ -50,9 +55,7 @@ export default function TodoList() {
               <Tag color="gray">Low</Tag>
             </Select.Option>
           </Select>
-          <Button type="primary" onClick={handleAddBtnClick}>
-            Add
-          </Button>
+          <Button type="primary">Add</Button>
         </Input.Group>
       </Col>
     </Row>
